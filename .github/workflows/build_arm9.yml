@@ -1,0 +1,20 @@
+name: Build Samples with Crosstool-NG
+
+on: [push]
+
+jobs:
+  build_samples:
+    name: build_samples
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Build Samples
+        uses: ./
+        with:
+          WORK_DIR: arm9-linux-gnueabi
+      - name: upload
+        uses: actions/upload-artifact@master
+        with:
+          name: arm9-gnueabi-xtools-artifact
+          path: arm9-gnueabi/x-tools
