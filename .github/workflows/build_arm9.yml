@@ -1,7 +1,9 @@
 name: Build arm9-linux-gnueabi with Crosstool-NG
 
-on: [push]
-
+on:
+  push:
+  workflow_dispatch:
+  
 jobs:
   build_samples:
     name: build_samples
